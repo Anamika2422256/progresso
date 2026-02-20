@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Expenses{% endblock %}
+
+{% block content %}
+
+<h2>Expenses Tracker</h2>
+
+<div class="card">
+    <h4>Add Expense</h4>
+    <input type="text" placeholder="Description">
+    <input type="number" placeholder="Amount">
+    <button>Add Expense</button>
+</div>
+
+<div class="card">
+    <h4>Total Spending</h4>
+    <h3>$0</h3>
+</div>
+
+{% endblock %}

@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #1E1B4B;
+    color: white;
+}
+
+header {
+    padding: 20px 40px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.logo {
+    color: white;
+}
+
+.login-container {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.brand h1 {
+    font-size: 42px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.brand p {
+    letter-spacing: 3px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.login-card {
+    background: #F3F4F6;
+    color: #111827;
+    width: 380px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #E5E7EB;
+    margin-top: 5px;
+}
+
+.icon {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    cursor: pointer;
+}
+
+.password-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.password-row a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #3B82F6;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.login-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #1E1B4B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background: #14113A;
+}
+
+.create-account {
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.create-account a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #1E1B4B;
+}

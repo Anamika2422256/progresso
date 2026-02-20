@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Activity Points{% endblock %}
+
+{% block content %}
+
+<h2>Activity Points</h2>
+
+<div class="card">
+    <h4>Add Activity Points</h4>
+
+    <form method="POST">
+        <input type="number" name="points" placeholder="Enter points" required>
+        <button type="submit">Add Points</button>
+    </form>
+</div>
+
+<div class="card">
+    <h4>Total Points</h4>
+    <h2>{{ total }}</h2>
+</div>
+
+{% endblock %}

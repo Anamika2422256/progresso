@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- Top Navbar -->
+<div class="topbar">
+    <div class="search-box">
+        <input type="text" placeholder="Search assignments, expenses...">
+    </div>
+
+    <div class="top-profile">
+        <span>Alex Johnson</span>
+        <div class="avatar"></div>
+    </div>
+</div>
+
+<!-- Welcome -->
+<div class="welcome">
+    <h2>Welcome back 👋</h2>
+    <p>Here’s your academic overview for this week.</p>
+</div>
+
+<!-- Stats Row -->
+<div class="stats-row">
+
+    <div class="stat-card">
+        <h4>Activity Points</h4>
+        <h2>450</h2>
+        <span>Out of 600 required</span>
+    </div>
+
+    <div class="stat-card">
+        <h4>Pending Assignments</h4>
+        <h2>3</h2>
+        <span>Next due tomorrow</span>
+    </div>
+
+    <div class="stat-card">
+        <h4>Total Spending</h4>
+        <h2>$124</h2>
+        <span>This week</span>
+    </div>
+
+    <div class="stat-card">
+        <h4>Study Requests</h4>
+        <h2>5</h2>
+        <span>Available</span>
+    </div>
+
+</div>
+
+<!-- Sections -->
+<div class="section">
+
+    <div class="section-header">
+        <h3>Activity Progress</h3>
+    </div>
+
+    <div class="card">
+        <div class="progress-bar">
+            <div class="progress" style="width:75%"></div>
+        </div>
+        <p>75% completed for this academic year</p>
+    </div>
+
+</div>
+
+<div class="section">
+
+    <div class="section-header">
+        <h3>Upcoming Assignments</h3>
+    </div>
+
+    <div class="card">
+        <div class="assignment-item">
+            <span>Algorithm Design</span>
+            <span class="due">Due Tomorrow</span>
+        </div>
+
+        <div class="assignment-item">
+            <span>Calculus Quiz</span>
+            <span>Nov 2</span>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

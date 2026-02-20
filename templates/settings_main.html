@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+
+<h2>Theme Settings</h2>
+
+<div class="theme-options">
+    <button onclick="changeTheme('#2563eb')" style="background:#2563eb"></button>
+    <button onclick="changeTheme('#16a34a')" style="background:#16a34a"></button>
+    <button onclick="changeTheme('#db2777')" style="background:#db2777"></button>
+    <button onclick="changeTheme('#ea580c')" style="background:#ea580c"></button>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+{% endblock %}

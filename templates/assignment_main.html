@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Assignment Planner{% endblock %}
+
+{% block content %}
+
+<h2>Assignment Planner</h2>
+
+<div class="card">
+    <h4>Add New Assignment</h4>
+    <input type="text" placeholder="Subject">
+    <input type="date">
+    <button>Add Assignment</button>
+</div>
+
+<div class="card">
+    <h4>Pending Assignments</h4>
+    <p>No assignments yet.</p>
+</div>
+
+{% endblock %}

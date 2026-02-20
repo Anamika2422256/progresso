@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Progresso | Academic Portal Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">PROGRESSO.</div>
+</header>
+
+<div class="login-container">
+    <div class="brand">
+        <h1>Progresso</h1>
+        <p>OWN YOUR ACADEMIC JOURNEY</p>
+    </div>
+
+    <div class="login-card">
+        <form action="/login" method="POST">
+
+            <label>USERNAME</label>
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Enter your username" required>
+                <span class="icon">👤</span>
+            </div>
+
+            <div class="password-row">
+                <label>PASSWORD</label>
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" id="password" placeholder="••••••••" required>
+                <span class="icon" onclick="togglePassword()">👁</span>
+            </div>
+
+            <div class="remember">
+                <input type="checkbox">
+                <span>Keep me logged in for 30 days</span>
+            </div>
+
+            <button type="submit" class="login-btn">ACCESS DASHBOARD</button>
+
+            <div class="create-account">
+                NEW TO THE PLATFORM?
+                <a href="#">CREATE AN ACCOUNT</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+<script>
+    const savedColor = localStorage.getItem("themeColor");
+    if (savedColor) {
+        document.documentElement.style.setProperty('--primary', savedColor);
+    }
+</script>
+</body>
+</html>
