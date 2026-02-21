@@ -3,88 +3,113 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-
-<!-- Top Navbar -->
-<div class="topbar">
-    <div class="search-box">
-        <input type="text" placeholder="Search assignments, expenses...">
+<div class="header">
+    <div>
+        <h1>Welcome back, Alex! 👋</h1>
+        <p style="color: var(--muted); margin-top: 5px;">Here's your academic performance and wellness overview for today.</p>
     </div>
-
-    <div class="top-profile">
-        <span>Alex Johnson</span>
-        <div class="avatar"></div>
-    </div>
-</div>
-
-<!-- Welcome -->
-<div class="welcome">
-    <h2>Welcome back 👋</h2>
-    <p>Here’s your academic overview for this week.</p>
-</div>
-
-<!-- Stats Row -->
-<div class="stats-row">
-
-    <div class="stat-card">
-        <h4>Activity Points</h4>
-        <h2>450</h2>
-        <span>Out of 600 required</span>
-    </div>
-
-    <div class="stat-card">
-        <h4>Pending Assignments</h4>
-        <h2>3</h2>
-        <span>Next due tomorrow</span>
-    </div>
-
-    <div class="stat-card">
-        <h4>Total Spending</h4>
-        <h2>$124</h2>
-        <span>This week</span>
-    </div>
-
-    <div class="stat-card">
-        <h4>Study Requests</h4>
-        <h2>5</h2>
-        <span>Available</span>
-    </div>
-
-</div>
-
-<!-- Sections -->
-<div class="section">
-
-    <div class="section-header">
-        <h3>Activity Progress</h3>
-    </div>
-
-    <div class="card">
-        <div class="progress-bar">
-            <div class="progress" style="width:75%"></div>
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <div style="text-align: right;">
+            <p style="font-weight: 700; font-size: 14px;">Alex Johnson</p>
+            <p style="font-size: 12px; color: var(--muted);">Computer Science • Yr 3</p>
         </div>
-        <p>75% completed for this academic year</p>
-    </div>
-
-</div>
-
-<div class="section">
-
-    <div class="section-header">
-        <h3>Upcoming Assignments</h3>
-    </div>
-
-    <div class="card">
-        <div class="assignment-item">
-            <span>Algorithm Design</span>
-            <span class="due">Due Tomorrow</span>
-        </div>
-
-        <div class="assignment-item">
-            <span>Calculus Quiz</span>
-            <span>Nov 2</span>
+        <div style="width: 45px; height: 45px; background: #DDD; border-radius: 50%; overflow: hidden;">
+            <img src="https://ui-avatars.com/api/?name=Alex+Johnson&background=1E1B4B&color=fff" alt="Profile" style="width: 100%;">
         </div>
     </div>
-
 </div>
 
+<div class="stats-grid">
+    <div class="glass-card">
+        <p style="font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: 0.5px;">ACTIVITY POINTS</p>
+        <div style="margin: 15px 0;">
+            <div style="height: 8px; width: 100%; background: #E2E8F0; border-radius: 10px; overflow: hidden;">
+                <div style="width: 75%; height: 100%; background: var(--accent);"></div>
+            </div>
+        </div>
+        <h2 style="font-size: 28px;">450 <span style="font-size: 14px; color: var(--muted); font-weight: 400;">/ 600</span></h2>
+        <p style="font-size: 11px; color: var(--muted); margin-top: 5px;">150 points to next milestone</p>
+    </div>
+
+    <div class="glass-card">
+        <p style="font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: 0.5px;">ASSIGNMENT PLANNER</p>
+        <div style="margin-top: 15px;">
+            <p style="font-weight: 700; font-size: 14px;">Algorithm Design</p>
+            <p style="font-size: 12px; color: var(--muted);">Oct 30</p>
+        </div>
+        <div style="margin-top: 10px;">
+            <p style="font-weight: 700; font-size: 14px;">Calculus Quiz</p>
+            <p style="font-size: 12px; color: var(--muted);">Nov 2</p>
+        </div>
+        <a href="/assignment" style="display: block; margin-top: 15px; font-size: 12px; color: var(--accent); text-decoration: none; font-weight: 600;">View full schedule</a>
+    </div>
+
+    <div class="glass-card">
+        <p style="font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: 0.5px;">WEEKLY SPENDING</p>
+        <h2 style="font-size: 28px; margin: 15px 0;">$124.50</h2>
+        <p style="font-size: 12px; color: #EF4444; font-weight: 600;">↗ 8% vs last week</p>
+        <p style="font-size: 11px; color: var(--muted); margin-top: 10px;">Top Category: <span style="font-weight: 700;">FOOD & DRINK</span></p>
+    </div>
+
+    <div class="glass-card">
+        <p style="font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: 0.5px;">STUDY GROUP FINDER</p>
+        <div style="margin-top: 15px;">
+            <p style="font-size: 13px;"><span style="color: #10B981;">●</span> CS 101 Study</p>
+            <p style="font-size: 13px; margin-top: 5px;"><span style="color: #10B981;">●</span> Math Peer Review</p>
+        </div>
+        <button class="btn" style="width: 100%; margin-top: 25px; padding: 8px;" onclick="window.location.href='/study'">Find Groups</button>
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 25px;">
+    <div class="glass-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3>Recent Grades</h3>
+            <a href="#" style="font-size: 12px; color: var(--accent); text-decoration: none;">View All</a>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px; border-bottom: 1px solid #F1F5F9;">
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <div style="padding: 10px; background: #EEF2FF; color: var(--accent); border-radius: 8px;">📊</div>
+                <div>
+                    <p style="font-weight: 700; font-size: 14px;">Data Structures Assignment</p>
+                    <p style="font-size: 12px; color: var(--muted);">Graded on Oct 24, 2023</p>
+                </div>
+            </div>
+            <div style="text-align: right;">
+                <p style="font-weight: 800; color: #10B981;">92/100</p>
+                <p style="font-size: 10px; color: var(--muted); text-transform: uppercase;">Distinction</p>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px;">
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <div style="padding: 10px; background: #FFF7ED; color: #EA580C; border-radius: 8px;">∑</div>
+                <div>
+                    <p style="font-weight: 700; font-size: 14px;">Discrete Mathematics Midterm</p>
+                    <p style="font-size: 12px; color: var(--muted);">Graded on Oct 20, 2023</p>
+                </div>
+            </div>
+            <div style="text-align: right;">
+                <p style="font-weight: 800; color: #10B981;">84/100</p>
+                <p style="font-size: 10px; color: var(--muted); text-transform: uppercase;">Very Good</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="glass-card">
+        <h3>Upcoming Tasks</h3>
+        <div style="margin-top: 20px;">
+            <div style="padding-left: 15px; border-left: 3px solid #EF4444; margin-bottom: 20px;">
+                <p style="font-weight: 700; font-size: 14px;">Physics Lab Submission</p>
+                <p style="font-size: 12px; color: var(--muted);">Due today, 11:59 PM</p>
+                <span style="font-size: 10px; padding: 2px 6px; background: #FEE2E2; color: #EF4444; border-radius: 4px; font-weight: 700;">HIGH PRIORITY</span>
+            </div>
+            <div style="padding-left: 15px; border-left: 3px solid #F59E0B; margin-bottom: 20px;">
+                <p style="font-weight: 700; font-size: 14px;">Library Book Return</p>
+                <p style="font-size: 12px; color: var(--muted);">Overdue since Oct 25</p>
+                <span style="font-size: 10px; padding: 2px 6px; background: #FEF3C7; color: #D97706; border-radius: 4px; font-weight: 700;">PENDING</span>
+            </div>
+        </div>
+        <button class="btn" style="width: 100%; background: #F8FAFC; color: var(--navy); border: 1px solid #E2E8F0; margin-top: 10px;">+ Add New Task</button>
+    </div>
+</div>
 {% endblock %}

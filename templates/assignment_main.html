@@ -1,21 +1,95 @@
 {% extends "base.html" %}
-
 {% block title %}Assignment Planner{% endblock %}
 
 {% block content %}
-
-<h2>Assignment Planner</h2>
-
-<div class="card">
-    <h4>Add New Assignment</h4>
-    <input type="text" placeholder="Subject">
-    <input type="date">
-    <button>Add Assignment</button>
+<div class="header-flex">
+    <div>
+        <h1>Assignment Planner</h1>
+        <p style="color: var(--text-muted);">Manage your deadlines and track progress.</p>
+    </div>
+    <button class="btn-primary" onclick="document.getElementById('assignModal').style.display='flex'">+ Add New Task</button>
 </div>
 
-<div class="card">
-    <h4>Pending Assignments</h4>
-    <p>No assignments yet.</p>
+<div class="glass-card">
+    <table>
+        <thead>
+            <tr>
+                <th>Assignment Name</th>
+                <th>Subject</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="assignmentList">
+            </tbody>
+    </table>
 </div>
 
+<div id="assignModal" class="modal-overlay">
+    <div class="modal-card">
+        <h3>Create New Assignment</h3>
+        <hr style="margin: 15px 0; opacity: 0.1;">
+        <div class="form-group">
+            <label>Assignment Name</label>
+            <input type="text" id="taskName" placeholder="e.g. Research Paper">
+        </div>
+        <div class="form-group">
+            <label>Subject</label>
+            <input type="text" id="taskSubject" placeholder="e.g. Physics">
+        </div>
+        <div class="form-group">
+            <label>Due Date</label>
+            <input type="date" id="taskDate">
+        </div>
+        <div style="display:flex; gap:10px; margin-top:20px;">
+            <button class="btn-primary" style="flex:1" onclick="saveTask()">Save Task</button>
+            <button class="btn-primary" style="flex:1; background:#E5E7EB; color:black" onclick="document.getElementById('assignModal').style.display='none'">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function saveTask() {
+    const name = document.getElementById('taskName').value;
+    const sub = document.getElementById('taskSubject').value;
+    const date = document.getElementById('taskDate').value;
+
+    if(!name || !date) return alert("Please fill in the name and date");
+
+    const newTask = { id: Date.now(), name, sub, date };
+    let tasks = JSON.parse(localStorage.getItem('myAssignments') || '[]');
+    tasks.push(newTask);
+    localStorage.setItem('myAssignments', JSON.stringify(tasks));
+    
+    document.getElementById('assignModal').style.display = 'none';
+    renderTasks();
+}
+
+function deleteTask(id) {
+    let tasks = JSON.parse(localStorage.getItem('myAssignments') || '[]');
+    tasks = tasks.filter(t => t.id !== id);
+    localStorage.setItem('myAssignments', JSON.stringify(tasks));
+    renderTasks();
+}
+
+function renderTasks() {
+    const tasks = JSON.parse(localStorage.getItem('myAssignments') || '[]');
+    const body = document.getElementById('assignmentList');
+    if(tasks.length === 0) {
+        body.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:40px; color:#999;">No assignments found. Add one to get started!</td></tr>';
+        return;
+    }
+    body.innerHTML = tasks.map(t => `
+        <tr>
+            <td><strong>${t.name}</strong></td>
+            <td><span class="badge">${t.sub}</span></td>
+            <td>${t.date}</td>
+            <td style="color:orange">● Pending</td>
+            <td><button onclick="deleteTask(${t.id})" style="background:none; border:none; color:red; cursor:pointer;">Delete</button></td>
+        </tr>
+    `).join('');
+}
+window.onload = renderTasks;
+</script>
 {% endblock %}

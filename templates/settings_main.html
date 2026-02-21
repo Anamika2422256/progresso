@@ -1,20 +1,49 @@
 {% extends "base.html" %}
-
 {% block title %}Settings{% endblock %}
 
 {% block content %}
-
-<h2>Theme Settings</h2>
-
-<div class="theme-options">
-    <button onclick="changeTheme('#2563eb')" style="background:#2563eb"></button>
-    <button onclick="changeTheme('#16a34a')" style="background:#16a34a"></button>
-    <button onclick="changeTheme('#db2777')" style="background:#db2777"></button>
-    <button onclick="changeTheme('#ea580c')" style="background:#ea580c"></button>
+<div class="header-flex">
+    <h1>Settings</h1>
 </div>
 
-{% endblock %}
+<div style="display: grid; grid-template-columns: 1fr 2fr; gap: 25px;">
+    <div class="glass-card" style="text-align: center;">
+        <div style="width: 80px; height: 80px; background: var(--primary-navy); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 30px;">
+            AJ
+        </div>
+        <h3>Alex Johnson</h3>
+        <p style="color: var(--text-muted); font-size: 13px;">alex.j@university.edu</p>
+    </div>
 
-{% block scripts %}
-<script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+    <div class="glass-card">
+        <h3>Account Preferences</h3>
+        <hr style="margin: 20px 0; opacity: 0.1;">
+        
+        <div style="margin-bottom: 25px;">
+            <p style="font-weight: 600; margin-bottom: 10px;">Theme Selection</p>
+            <div style="display: flex; gap: 15px;">
+                <button onclick="changeTheme('#1E1B4B')" style="width:35px; height:35px; border-radius:50%; background:#1E1B4B; border:2px solid white; box-shadow:0 0 5px rgba(0,0,0,0.2); cursor:pointer;"></button>
+                <button onclick="changeTheme('#4F46E5')" style="width:35px; height:35px; border-radius:50%; background:#4F46E5; border:2px solid white; cursor:pointer;"></button>
+                <button onclick="changeTheme('#059669')" style="width:35px; height:35px; border-radius:50%; background:#059669; border:2px solid white; cursor:pointer;"></button>
+            </div>
+            <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">Select a primary color for your dashboard.</p>
+        </div>
+
+        <div style="margin-bottom: 25px;">
+            <p style="font-weight: 600; margin-bottom: 10px;">Notifications</p>
+            <label style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                <input type="checkbox" checked> Email me about upcoming deadlines
+            </label>
+        </div>
+
+        <button class="btn-primary" onclick="alert('Settings Saved Successfully!')">Save All Changes</button>
+    </div>
+</div>
+
+<script>
+function changeTheme(color) {
+    document.documentElement.style.setProperty('--primary-navy', color);
+    localStorage.setItem('userTheme', color);
+}
+</script>
 {% endblock %}

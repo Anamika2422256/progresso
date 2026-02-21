@@ -1,21 +1,49 @@
 {% extends "base.html" %}
-
-{% block title %}Study Partner Finder{% endblock %}
-
 {% block content %}
-
-<h2>Study Partner Finder</h2>
-
-<div class="card">
-    <h4>Create Study Request</h4>
-    <input type="text" placeholder="Subject">
-    <input type="text" placeholder="Preferred Time">
-    <button>Post Request</button>
+<div class="header-flex">
+    <h1>Study Partner Finder</h1>
+    <button class="btn-primary" onclick="toggleModal('studyModal', true)">Post Request</button>
 </div>
 
-<div class="card">
-    <h4>Available Requests</h4>
-    <p>No study posts yet.</p>
+<div id="studyGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+    </div>
+
+<div class="modal-overlay" id="studyModal">
+    <div class="modal-card">
+        <h3>Post Study Request</h3>
+        <div class="form-group"><label>Subject</label><input type="text" id="sSub"></div>
+        <div class="form-group"><label>Topic</label><input type="text" id="sTopic"></div>
+        <div class="form-group"><label>Preferred Time</label><input type="text" id="sTime"></div>
+        <button class="btn-primary" style="width:100%" onclick="saveStudy()">Post Now</button>
+    </div>
 </div>
 
+<script>
+function toggleModal(id, show) { document.getElementById(id).style.display = show ? 'flex' : 'none'; }
+
+function saveStudy() {
+    const sub = document.getElementById('sSub').value;
+    const topic = document.getElementById('sTopic').value;
+    const time = document.getElementById('sTime').value;
+    
+    let list = JSON.parse(localStorage.getItem('myStudy') || '[]');
+    list.push({ sub, topic, time });
+    localStorage.setItem('myStudy', JSON.stringify(list));
+    toggleModal('studyModal', false);
+    renderStudy();
+}
+
+function renderStudy() {
+    const list = JSON.parse(localStorage.getItem('myStudy') || '[]');
+    document.getElementById('studyGrid').innerHTML = list.map(item => `
+        <div class="glass-card">
+            <span class="badge" style="background: #D1FAE5; color: #065F46;">${item.sub}</span>
+            <h3 style="margin: 10px 0;">${item.topic}</h3>
+            <p style="color: var(--text-muted); font-size: 13px;">🕒 ${item.time}</p>
+            <button class="btn-primary" style="width: 100%; margin-top: 15px; background: #EEF2FF; color: var(--accent-blue);">Join Session</button>
+        </div>
+    `).join('');
+}
+window.onload = renderStudy;
+</script>
 {% endblock %}

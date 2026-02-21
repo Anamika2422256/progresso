@@ -3,79 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Progresso | {% block title %}{% endblock %}</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Main CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
-
-    <style>
-        :root {
-            --primary: #2563eb;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
 </head>
 <body>
-
-<div class="container">
-
-    <!-- Sidebar -->
     <aside class="sidebar">
-        <div class="logo">Progresso</div>
-
-        <nav>
-            <a href="{{ url_for('dashboard') }}"
-               class="{% if request.endpoint == 'dashboard' %}active{% endif %}">Dashboard</a>
-
-            <a href="{{ url_for('activity') }}"
-               class="{% if request.endpoint == 'activity' %}active{% endif %}">Activity Points</a>
-
-            <a href="{{ url_for('assignment') }}"
-               class="{% if request.endpoint == 'assignment' %}active{% endif %}">Assignment Planner</a>
-
-            <a href="{{ url_for('expenses') }}"
-               class="{% if request.endpoint == 'expenses' %}active{% endif %}">Expenses</a>
-
-            <a href="{{ url_for('study') }}"
-               class="{% if request.endpoint == 'study' %}active{% endif %}">Study Partner Finder</a>
-
-            <a href="{{ url_for('profile') }}"
-               class="{% if request.endpoint == 'profile' %}active{% endif %}">Profile</a>
-
-            <a href="{{ url_for('settings') }}"
-               class="{% if request.endpoint == 'settings' %}active{% endif %}">Settings</a>
-
-            <a href="{{ url_for('logout') }}" class="logout">Logout</a>
-        </nav>
+        <div class="logo-area">Progresso.</div>
+           <nav class="nav-links">
+    <a href="{{ url_for('dashboard') }}" class="{% if request.endpoint == 'dashboard' %}active{% endif %}">📊 Dashboard</a>
+    <a href="{{ url_for('activity') }}" class="{% if request.endpoint == 'activity' %}active{% endif %}">⭐ Activity Points</a>
+    <a href="{{ url_for('assignment') }}" class="{% if request.endpoint == 'assignment' %}active{% endif %}">📅 Assignment Planner</a>
+    <a href="{{ url_for('expenses') }}" class="{% if request.endpoint == 'expenses' %}active{% endif %}">💳 Expenses</a>
+    <a href="{{ url_for('logout') }}" style="color: #ef4444; margin-top: auto;">🚪 Logout</a>
+</nav>
     </aside>
-
-    <!-- Main Content -->
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-
+    <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid #f1f5f9;">
+    <a href="{{ url_for('logout') }}" 
+       style="display: flex; align-items: center; gap: 12px; padding: 12px; color: #ef4444; text-decoration: none; border-radius: 10px; font-weight: 600; transition: 0.2s;"
+       onmouseover="this.style.backgroundColor='#fee2e2'" 
+       onmouseout="this.style.backgroundColor='transparent'">
+        <span style="font-size: 1.2rem;">🚪</span>
+        <span>Logout</span>
+    </a>
 </div>
-<style>
-:root {
-    --primary: #2563eb;
-}
-</style>
-
-<!-- Apply Saved Theme -->
-<script>
-    const savedColor = localStorage.getItem("themeColor");
-    if (savedColor) {
-        document.documentElement.style.setProperty('--primary', savedColor);
-    }
-</script>
-
-{% block scripts %}{% endblock %}
-
+    <main>{% block content %}{% endblock %}</main>
 </body>
 </html>

@@ -1,15 +1,51 @@
 {% extends "base.html" %}
-
-{% block title %}Profile{% endblock %}
+{% block title %}My Profile{% endblock %}
 
 {% block content %}
-
-<h2>My Profile</h2>
-
-<div class="card">
-    <p><strong>Name:</strong> Alex Johnson</p>
-    <p><strong>Year:</strong> 3rd Year</p>
-    <p><strong>Branch:</strong> Computer Science</p>
+<div class="header-flex">
+    <h1>Student Profile</h1>
 </div>
 
+<div style="display: grid; grid-template-columns: 1fr 2fr; gap: 30px;">
+    <div class="glass-card" style="text-align: center;">
+        <div style="width: 120px; height: 120px; background: var(--navy); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 40px; font-weight: 700;">
+            AJ
+        </div>
+        <h2 style="margin-bottom: 5px;">Alex Johnson</h2>
+        <p style="color: var(--text-muted); font-size: 14px;">Student ID: 2024-8821</p>
+        <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+            <span class="badge" style="background: #D1FAE5; color: #065F46;">Status: Active</span>
+            <span class="badge">Year: 3rd Year Undergraduate</span>
+        </div>
+    </div>
+
+    <div class="glass-card">
+        <h3>Academic Information</h3>
+        <hr style="margin: 20px 0; opacity: 0.1;">
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+                <label style="font-size: 12px; color: var(--text-muted); font-weight: 700;">MAJOR</label>
+                <p style="font-weight: 600; margin-top: 5px;">Computer Science</p>
+            </div>
+            <div>
+                <label style="font-size: 12px; color: var(--text-muted); font-weight: 700;">MINOR</label>
+                <p style="font-weight: 600; margin-top: 5px;">Data Analytics</p>
+            </div>
+            <div>
+                <label style="font-size: 12px; color: var(--text-muted); font-weight: 700;">CUMULATIVE GPA</label>
+                <p style="font-weight: 600; margin-top: 5px; color: var(--accent);">3.82 / 4.0</p>
+            </div>
+            <div>
+                <label style="font-size: 12px; color: var(--text-muted); font-weight: 700;">CREDITS EARNED</label>
+                <p style="font-weight: 600; margin-top: 5px;">92 Credits</p>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 40px;">Contact Details</h3>
+        <hr style="margin: 20px 0; opacity: 0.1;">
+        <p style="font-size: 14px; margin-bottom: 10px;"><strong>Email:</strong> alex.j@university.edu</p>
+        <p style="font-size: 14px;"><strong>Emergency Contact:</strong> +1 (555) 012-3456</p>
+    </div>
+</div>
 {% endblock %}

@@ -1,4 +1,61 @@
-<h2>Logout Successful</h2>
-<p>You have been logged out.</p>
-<a href="/">Go to Login</a>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Progresso | Logged Out</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --navy: #1E1B4B; --accent: #4F46E5; }
+        body { 
+            margin: 0; 
+            background: #F3F4F6; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+        }
+        .logout-card { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 24px; 
+            text-align: center; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            max-width: 400px;
+        }
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            background: #EEF2FF;
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 20px;
+        }
+        h2 { color: var(--navy); margin-bottom: 10px; }
+        p { color: #6B7280; font-size: 14px; margin-bottom: 30px; line-height: 1.5; }
+        .btn-return {
+            background: var(--navy);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-return:hover { background: var(--accent); }
+    </style>
+</head>
+<body>
+    <div class="logout-card">
+        <div class="icon-circle">👋</div>
+        <h2>You've been logged out</h2>
+        <p>Thank you for using Progresso. Your session has ended securely. See you again soon!</p>
+        <a href="{{ url_for('login_page') }}" class="btn-return">Return to Login</a>
+    </div>
+</body>
+</html>
